@@ -8,22 +8,22 @@ int select_lan(void)
 
 	languaje = NO_SELECTED;
 
-	while (languaje == NO_SELECTED && tries <= 3)
+	while (languaje == NO_SELECTED)
 	{
+		if (tries >= 3)
+			error(4);
 		ft_printf("LANGUAGE SELECT\n	%s\n	%s\n-> ", "ENGLISH", "SPANISH");
 		line = get_next_line(0);
 		if (!ft_strncmp("ENGLISH\n", line, 9) || !ft_strncmp("english\n", line, 9))
 			languaje = EN;
-		else if (ft_strncmp("SPANISH\n", line, 9) || !ft_strncmp("spanish\n", line, 9))
+		else if (!ft_strncmp("SPANISH\n", line, 9) || !ft_strncmp("spanish\n", line, 9))
 			languaje = ES;
 		else
 		{
 			ft_printf("please, write only a showed option all in uppercase or lowercase\n");
-			tries++;
+			++tries;
 		}
 	}
-	if (languaje == NO_SELECTED)
-		error(3);
 	return (languaje);
 }
 
