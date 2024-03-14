@@ -2,5 +2,6 @@
 
 int document_creator(int fd)
 {
-	int mode = user_interaction();
+	t_lan languaje = select_lan();
+	
 }

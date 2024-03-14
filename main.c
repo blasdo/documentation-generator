@@ -13,6 +13,8 @@ int error(int errno)
 		case 2:
 			ft_fdprintf(2, "The file alredy exists\n");
 			break;
+		case 3:
+			ft_fdprintf(2, "TO MANY TRIES\n");
 		default:
 			ft_fdprintf(2, "UNKNOWN ERROR\n");
 	}

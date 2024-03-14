@@ -1,29 +1,35 @@
 #include "documentation_generator.h"
 
-static int select_lan(void)
+int select_lan(void)
 {
-	int 	option = 0;
 	int 	tries = 0;
 	char	*line;
+	t_lan	languaje;
 
-	while (option == 0 && tries <= 3)
+	languaje = NO_SELECTED;
+
+	while (languaje == NO_SELECTED && tries <= 3)
 	{
 		ft_printf("LANGUAGE SELECT\n	%s\n	%s\n-> ", "ENGLISH", "SPANISH");
 		line = get_next_line(0);
 		if (!ft_strncmp("ENGLISH\n", line, 9) || !ft_strncmp("english\n", line, 9))
-			option = 1;
+			languaje = EN;
 		else if (ft_strncmp("SPANISH\n", line, 9) || !ft_strncmp("spanish\n", line, 9))
-			option = 2;
+			languaje = ES;
 		else
 		{
 			ft_printf("please, write only a showed option all in uppercase or lowercase\n");
 			tries++;
 		}
 	}
-	return (option);
+	if (languaje == NO_SELECTED)
+		error(3);
+	return (languaje);
 }
 
-static int	main_menu(){
+/* NOT USED
+int	main_menu()
+{
 	int option = 0;
 	int	tries = 0;
 	int	selected_lan = 0;
@@ -58,10 +64,4 @@ static int	main_menu(){
 	}
 	return (option);
 }
-
-int	user_interaction()
-{
-	int	option;
-
-	option = main_menu();
-}
+*/
