@@ -18,10 +18,6 @@ typedef enum
 	IMPLEMENTATION_DETAILS
 }		t_sect;
 
-
-// stdin_reader.c
-char	*read_section();
-void	*write_in_doc(t_lan lan, char *text, t_sect section);
 // document_creator.c
 int		document_creator(char	*path);
 // menus.c

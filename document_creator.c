@@ -6,7 +6,7 @@ int	create_document_es(int fd)
 
 	ft_fdprintf(fd, "# ES\n");
 	ft_printf("Bienvenido al programa de ceración de documentación %s",
-				"recuerde que solo puede usar una línea en cada pregunta");
+				"recuerde que solo puede usar una línea en cada pregunta\n");
 	ft_printf("Dí el nombre de la función\n->");
 	line = get_next_line(0);
 	if (!line)

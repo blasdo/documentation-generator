@@ -37,7 +37,10 @@ int main(int argc, char *argv[])
 	int action;
 
 	if (argc != 2)
-		ft_printf("document_generator <path_of_new_file>");
+	{
+		ft_printf("document_generator <path_of_new_file>\n");
+		exit(1);
+	}
 	if ((fd = (open(argv[1], O_RDWR))) > 0)
 	{
 		close(fd);
