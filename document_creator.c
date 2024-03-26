@@ -1,29 +1,40 @@
 #include "documentation_generator.h"
 
-int	create_document_es(int fd)
-{
-	char	*line;
+/*
+* View blueprint for more information about format
+*/
 
+void	print_document(int fd)
+{
+	//not implemented
+}
+int	create_document_es(void)
+{
+	char	**document;
+
+	/*
+	* There are 5 sections
+	* Prototipo
+	* Descripción
+	* Retorno
+	* Errores conocidos
+	* Detalles de implementación
+	*/
+	document = malloc(5 * sizeof(void *));
 	ft_fdprintf(fd, "# ES\n");
 	ft_printf("Bienvenido al programa de ceración de documentación %s",
 				"recuerde que solo puede usar una línea en cada pregunta\n");
-	ft_printf("Dí el nombre de la función\n->");
-	line = get_next_line(0);
-	if (!line)
-		return (1);
-	ft_fdprintf(fd, "## %s", line);
-	ft_printf("Di su prototipo\n->");
-	line = get_next_line(0);
-	if (!line)
-		return (1);
-	ft_fdprintf(fd, "### Prototipo y descripcion\n");
-	ft_fdprintf(fd, "```c\n%s```\n", line);	
-	ft_printf("Describe brevemente para que sirve\n->");
-	line = get_next_line(0);
-	if (!line)
-		return (1);
-	ft_fdprintf(fd, "#### Descripcion\n%s\n", line);
-	return (0);
+	document[0] = create_prototype();
+	document[1] = create_section(DESCRIPTION);
+	document[2] = create_section(RETURN);
+	document[3] = create_section(KNOWN_ISSUES);
+	document[4] = create_section(IMPLEMENTATION_DETAILS);
+	for (int i = 0; i < 5, i++)
+	{
+		if (!document[i])
+			error(
+	}
+	return (document);
 }
 
 int document_creator(char *path)
