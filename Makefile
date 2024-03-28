@@ -1,11 +1,9 @@
-NAME			= document_creator
-SRCS			= document_creator.c formater.c main.c menus.c
-OBJS			= $(SRCS:.c=.o)
-CC				= clang
-LIBFT_INC_PATH	= libft/include
-LIBFT_LIB_PATH	= libft/lib
-LIBFT			= libft/lib/libft.a
-CFLAGS			= -I$(LIBFT_INC_PATH)
+NAME	= document_creator
+SRCS	= document_creator.c formater.c main.c menus.c
+LIBFT	= libft/lib/libft.a
+OBJS	= $(SRCS:.c=.o)
+CC		= clang
+CFLAGS	=
 
 all:	$(NAME)
 
@@ -20,7 +18,7 @@ fclean: $(clean)
 
 re:	fclean all
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) -L$(LIBFT_LIB_PATH) -lft $(OBJS) -o $(NAME)
+	$(CC) -Ilibft/include -Llibft/lib -lft $(OBJS) -o $(NAME)
 
 $(LIBFT):
 	make -C libft

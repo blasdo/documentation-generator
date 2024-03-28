@@ -36,9 +36,9 @@ char	*create_prototype(void);
 * Know Issues
 * Implementation Details
 */
-char	*create_section(t_sect);
+char	*create_section(void);
 /*
-* no-use
+* Frontend
 */
 int		document_creator(char	*path);
 // menus.c
