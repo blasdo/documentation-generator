@@ -1,16 +1,8 @@
 #include "documentation_generator.h"
 
-/*
-* View blueprint for more information about format
-*/
-
-void	print_document(int fd)
-{
-	//not implemented
-}
 int	create_document(int fd, t_lan lan)
 {
-	char	**document;
+	char	**sections;
 
 	/*
 	* There are 5 sections
@@ -20,21 +12,21 @@ int	create_document(int fd, t_lan lan)
 	* Errores conocidos
 	* Detalles de implementación
 	*/
-	document = malloc(5 * sizeof(void *));
-	ft_printf("Bienvenido al programa de ceración de documentación %s",
+	sections = malloc(5 * sizeof(void *));
+	ft_printf("Bienvenido al programa de creación de documentación %s",
 				"recuerde que solo puede usar una línea en cada pregunta\n");
-	document[0] = create_prototype();
-	document[1] = create_section(DESCRIPTION);
-	document[2] = create_section(RETURN);
-	document[3] = create_section(KNOWN_ISSUES);
-	document[4] = create_section(IMPLEMENTATION_DETAILS);
+	sections[0] = create_prototype();
+	sections[1] = create_section(DESCRIPTION);
+	sections[2] = create_section(RETURN);
+	sections[3] = create_section(KNOWN_ISSUES);
+	sections[4] = create_section(IMPLEMENTATION_DETAILS);
 	for (int i = 0; i < 5; i++)
 	{
-		if (!document[i])
+		if (!sections[i])
 			error(
 	}
-	print_document(lan, fd);
-	return (document);
+	print_sections(lan, fd);
+	return (sections);
 }
 
 int document_creator(char *path)
